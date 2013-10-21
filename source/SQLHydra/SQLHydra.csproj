@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB52090B-CCB4-460F-AD93-4113C81CE616}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLHydra</RootNamespace>
+    <AssemblyName>SQLHydra</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseQuery.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DeleteQuery.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="InsertQuery.cs" />
+    <Compile Include="Interfaces\ICanAddJoin.cs" />
+    <Compile Include="Interfaces\ICanAddOrderByClause.cs" />
+    <Compile Include="Interfaces\ICanAddWhereCondition.cs" />
+    <Compile Include="Interfaces\ICanAddWhereConditionOrGetSQLCommandObject.cs" />
+    <Compile Include="Interfaces\ICanApplyToAllRowsOrAddWhereCondition.cs" />
+    <Compile Include="Interfaces\ICanGetSqlCommandObject.cs" />
+    <Compile Include="Interfaces\ICanSelectAnyColumnType.cs" />
+    <Compile Include="Interfaces\ICanSelectIndividualColumn.cs" />
+    <Compile Include="Interfaces\ICanSelectIndividualColumnOrHavingClause.cs" />
+    <Compile Include="Interfaces\ICanSetColumnValueToInsert.cs" />
+    <Compile Include="Interfaces\ICanSetColumnValueToInsertOrGetSQLCommandObject.cs" />
+    <Compile Include="Interfaces\ICanSetColumnValueToUpdate.cs" />
+    <Compile Include="Interfaces\ICanSetColumnValueToUpdateOrAddWhereCondition.cs" />
+    <Compile Include="Models\AssignmentColumn.cs" />
+    <Compile Include="Models\Column.cs" />
+    <Compile Include="Models\ComputedColumn.cs" />
+    <Compile Include="Models\HavingCondition.cs" />
+    <Compile Include="Models\Join.cs" />
+    <Compile Include="Models\WhereCondition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryBuilder.cs" />
+    <Compile Include="QueryEngine.cs" />
+    <Compile Include="QueryFormatter\FormatterFactory.cs" />
+    <Compile Include="QueryFormatter\IFormatter.cs" />
+    <Compile Include="QueryFormatter\MSSQL2008.cs" />
+    <Compile Include="QueryFormatter\StandardSQL.cs" />
+    <Compile Include="Resources\Literals.Designer.cs" />
+    <Compile Include="SelectQuery.cs" />
+    <Compile Include="UpdateQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Literals.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
